@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { CardWithForm } from "./Card";
+import { apiURL } from "@/lib/urls";
 
 const Cards = () => {
   const [data, setData] = useState([]);
   const callAPI = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/newsapi`, {
+      const res = await fetch(`${apiURL}/newsapi`, {
         method: "GET",
       });
       const data = await res.json();
