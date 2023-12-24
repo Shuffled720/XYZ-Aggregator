@@ -1,7 +1,7 @@
 const fetchNews = async (req: Request) => {
     
     const response=await fetch('https://newsapi.org/v2/everything?' +
-    'q=india+IIT+indore&' +
+    'q=Rupal&' +
    
     'sortBy=popularity&' +
     'apiKey=7724e979730840768bbb83000d63dbd1')
