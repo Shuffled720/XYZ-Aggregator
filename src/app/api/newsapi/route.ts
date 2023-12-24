@@ -1,8 +1,6 @@
-const fetchNews = async (req: Request) => {
-    
+const fetchNews = async (key:string) => {
     const response=await fetch('https://newsapi.org/v2/everything?' +
-    'q=Rupal&' +
-   
+    `q=${key}&` +
     'sortBy=popularity&' +
     'apiKey=7724e979730840768bbb83000d63dbd1')
 
@@ -11,7 +9,12 @@ const fetchNews = async (req: Request) => {
 }
 
 export async function GET(request :Request){
-    const response=await fetchNews(request);
+    const {searchParams}=new URL(request.url);
+    const key=searchParams.get('key');
+    var keywithoutspace=key?.replace(/\s/g, '+');    
+    console.log(keywithoutspace);
+    
+    const response=await fetchNews(keywithoutspace ? keywithoutspace : '');
     return Response.json({response});
 
 }

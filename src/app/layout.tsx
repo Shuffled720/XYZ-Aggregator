@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
-
+import { GlobalContextProvider } from "@/context/store";
 export const metadata: Metadata = {
   title: "XYZ Aggregator",
   description: "Genereates JSON from user given keywords with mini browser",
@@ -25,9 +25,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
-          <Footer />
+          <GlobalContextProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </GlobalContextProvider>
         </ThemeProvider>
       </body>
     </html>
