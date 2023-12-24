@@ -13,7 +13,7 @@ export function CardWithForm({ data }: any) {
   console.log(data);
 
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[300px] ">
       <div className="">
         <div>
           <img
@@ -33,9 +33,9 @@ export function CardWithForm({ data }: any) {
           </CardContent>
         </div>
         <div>
-          <CardFooter className="flex justify-between">
-            <Button variant="outline">Cancel</Button>
-            <Button>Deploy</Button>
+          <CardFooter className="flex justify-end">
+            {/* <Button variant="outline">Cancel</Button> */}
+            <Button>Open</Button>
           </CardFooter>
         </div>
       </div>

@@ -25,7 +25,7 @@ const Cards = () => {
   }, []);
   return (
     <>
-      <div className="px-20 py-10 flex">
+      <div className="mx-auto ">
         {data?.length === 0 ? (
           <div className=" h-screen mx-auto">
             {/* <div className="mx-auto">
@@ -49,7 +49,7 @@ const Cards = () => {
           </div>
         ) : (
           <>
-            <div className=" grid grid-cols-4 gap-2 justify-items-center m-auto">
+            <div className="m-4 grid md:grid-cols-3 gap-2 sm:grid-cols-1 justify-items-center ">
               {data.map((item: any) => (
                 <>
                   {/* <div>{item?.title}</div> */}
