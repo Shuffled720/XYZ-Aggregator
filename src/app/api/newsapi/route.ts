@@ -2,7 +2,7 @@ const fetchNews = async (key:string) => {
     const response=await fetch('https://newsapi.org/v2/everything?' +
     `q=${key}&` +
     'sortBy=popularity&' +
-    'apiKey=7724e979730840768bbb83000d63dbd1')
+    'apiKey=d806800d41544b5d834e9e3b6bdae18e')
 
     const json=await response.json();
     return json;
