@@ -1,12 +1,9 @@
 "use client";
-import WebPlayback from "@/components/sections/Spotify/WebPlayback";
 import { SpotifyUser } from "@/components/sections/Spotify/SpotifyUser";
 import { Input } from "@/components/ui/input";
 import React, { FC, useEffect, useState } from "react";
 import SpotifyPlayer from "react-spotify-web-playback";
 import { useGlobalContext } from "@/context/store";
-import Music from "@/components/sections/Spotify/Music";
-import { apiURL } from "@/lib/urls";
 import Musics from "@/components/sections/Spotify/Musics";
 import { Button } from "@/components/ui/button";
 

@@ -8,16 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
 const Musics = ({ data, setMusic }: any) => {
   console.log();
 
@@ -37,7 +27,6 @@ const Musics = ({ data, setMusic }: any) => {
                 </CardHeader>
                 <CardContent></CardContent>
                 <CardFooter className="flex justify-between">
-                  {/* <Button variant="outline">Cancel</Button> */}
                   <Button
                     onClick={() => {
                       setMusic(item.id);

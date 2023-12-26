@@ -26,12 +26,11 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <GlobalContextProvider>
-            <Navbar />
+            {/* <Navbar /> */}
             {children}
             <Footer />
           </GlobalContextProvider>
         </ThemeProvider>
-        {/* <script src="https://sdk.scdn.co/spotify-player.js"></script> */}
       </body>
     </html>
   );

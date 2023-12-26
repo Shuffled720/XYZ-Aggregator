@@ -1,4 +1,3 @@
-import MenuBar from "@/components/MenuBar";
 import News from "@/components/sections/News/News";
 import React from "react";
 

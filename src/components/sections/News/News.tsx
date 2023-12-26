@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { CardWithForm } from "./NewsCard";
 import { apiURL } from "@/lib/urls";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Loader2 } from "lucide-react";
 import { useGlobalContext } from "@/context/store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const News = () => {
-  const { search, apiType, setSearch } = useGlobalContext();
+  const { search, setSearch } = useGlobalContext();
+  const [totalResults, setTotalResults] = useState(-1); // data["totalResults"
   const [data, setData] = useState([]);
   const callAPI = async () => {
     try {
@@ -22,6 +22,7 @@ const News = () => {
       });
       const data = await res.json();
       //   console.log(data);
+      setTotalResults(data.response.totalResults);
       setData(data.response.articles);
     } catch (err) {
       console.log(err);
@@ -43,30 +44,50 @@ const News = () => {
             type="text"
             placeholder="Search..."
           />
-          <Button onClick={() => callAPI()}>Submit</Button>
+          <Button
+            onClick={() => {
+              callAPI();
+              setTotalResults(-1);
+              setData([]);
+            }}
+          >
+            Submit
+          </Button>
         </div>
-        {data && data.length === 0 ? (
+        {data.length === 0 && totalResults === -1 ? (
           <>
-            <div className=" h-screen ">
-              {/* <div className="mx-auto">
-            <Loader2 className="h-8 w-8 animate-spin text-zinc-800" />
-            <h3 className="font-semibold text-xl">Loading...</h3>
-          </div> */}
-              <div className="flex items-center space-x-4">
+            <div className="">
+              <div className="py-5 flex items-center space-x-4 px-10 ">
                 <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
+                <div className="space-y-2 w-9/12">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-9/12" />
                 </div>
               </div>
-              <div className="flex py-5 items-center space-x-4">
+              <div className="py-5 flex items-center space-x-4 px-10 ">
                 <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
+                <div className="space-y-2 w-9/12">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-9/12" />
+                </div>
+              </div>
+              <div className="py-5 flex items-center space-x-4 px-10 ">
+                <Skeleton className="h-12 w-12 rounded-full" />
+                <div className="space-y-2 w-9/12">
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-9/12" />
                 </div>
               </div>
             </div>
+          </>
+        ) : (
+          <></>
+        )}
+        {totalResults === 0 ? (
+          <>
+            <h1 className="text-destructive text-center text-3xl my-5">
+              No news to display!!!
+            </h1>
           </>
         ) : (
           <>
