@@ -22,8 +22,8 @@ const GlobalContext = createContext<ContextProps>({
 });
 
 export const GlobalContextProvider = ({ children }: any) => {
-  const [search, setSearch] = useState("");
-  const [apiType, setApiType] = useState("");
+  const [search, setSearch] = useState("india");
+  const [apiType, setApiType] = useState("news");
   return (
     <GlobalContext.Provider value={{ search, setSearch, apiType, setApiType }}>
       {children}

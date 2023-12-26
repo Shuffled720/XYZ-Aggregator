@@ -1,3 +1,11 @@
+import MenuBar from "@/components/MenuBar";
+
 export default function Home() {
-  return <main></main>;
+  return (
+    <main>
+      <>
+        <MenuBar/>
+      </>
+    </main>
+  );
 }
