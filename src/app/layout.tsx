@@ -31,6 +31,7 @@ export default function RootLayout({
             <Footer />
           </GlobalContextProvider>
         </ThemeProvider>
+        {/* <script src="https://sdk.scdn.co/spotify-player.js"></script> */}
       </body>
     </html>
   );

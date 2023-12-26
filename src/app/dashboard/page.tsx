@@ -13,13 +13,7 @@ const page = async () => {
   if (!user || !user.id) {
     redirect("/");
   }
-  return (
-    <>
-      <MenuBar />
-      {/* <News /> */}
-      {/* <Cards /> */}
-    </>
-  );
+  return <></>;
 };
 
 export default page;

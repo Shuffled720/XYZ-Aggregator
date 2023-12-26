@@ -22,8 +22,10 @@
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-spotify-web-playback": "^0.14.1",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-spotify-web-playback-sdk": "^0.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",

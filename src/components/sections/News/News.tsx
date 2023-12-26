@@ -6,9 +6,11 @@ import { apiURL } from "@/lib/urls";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Loader2 } from "lucide-react";
 import { useGlobalContext } from "@/context/store";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const News = () => {
-  const { search, apiType } = useGlobalContext();
+  const { search, apiType, setSearch } = useGlobalContext();
   const [data, setData] = useState([]);
   const callAPI = async () => {
     try {
@@ -26,13 +28,23 @@ const News = () => {
     }
   };
   useEffect(() => {
-    setTimeout(() => {
-      callAPI();
-    }, 1500);
-  }, [search, apiType]);
+    callAPI();
+  }, []);
   return (
     <>
       <div className="mx-auto ">
+        <div className="w-1/2 m-auto py-2 flex justify-between">
+          <Input
+            className="mx-1"
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+            type="text"
+            placeholder="Search..."
+          />
+          <Button onClick={() => callAPI()}>Submit</Button>
+        </div>
         {data && data.length === 0 ? (
           <>
             <div className=" h-screen ">
@@ -58,10 +70,9 @@ const News = () => {
           </>
         ) : (
           <>
-            <div className="m-4 grid md:grid-cols-3 gap-2 sm:grid-cols-1 justify-items-center ">
+            <div className="m-4 grid md:grid-cols-5 gap-2 sm:grid-cols-1 justify-items-center ">
               {data?.map((item: any) => (
                 <>
-                  {/* <div>{item?.title}</div> */}
                   <CardWithForm data={item} />
                 </>
               ))}

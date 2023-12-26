@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Loader2 } from "lucide-react";
 import { useGlobalContext } from "@/context/store";
 import News from "./sections/News/News";
-import Music from "./sections/Music/Music";
+import Music from "./sections/Spotify/Music";
 
 const Cards = () => {
   const { search, apiType } = useGlobalContext();
