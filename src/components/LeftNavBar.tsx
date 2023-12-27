@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import { ModeToggle } from "./ModeToggle";
 import { Button } from "./ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import {

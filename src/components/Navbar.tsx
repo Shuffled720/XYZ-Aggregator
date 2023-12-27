@@ -12,13 +12,10 @@ import Image from "next/image";
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  // console.log(user);
-
   return (
     <div>
       <nav className=" px-2 flex justify-between  py-5 bg-foreground justify-items-center items-center">
         <div>
-          {/* <h1 className="text-background ">XYZ Aggregator</h1> */}
           <Link href="/dashboard">
             <Image src="/logo.png" width={100} height={100} alt="_logo" />
           </Link>

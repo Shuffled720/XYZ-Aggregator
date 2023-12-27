@@ -3,8 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useGlobalContext } from "@/context/store";
-import { apiURL } from "@/lib/urls";
+// import { apiURL } from "@/lib/urls";
 import { useState } from "react";
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 const Translate = () => {
   const { search, setSearch } = useGlobalContext();
   const [data, setData] = useState([]);

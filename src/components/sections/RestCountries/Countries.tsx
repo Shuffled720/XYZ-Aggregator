@@ -30,10 +30,6 @@ const Countries = ({ data }: { data: any }) => {
               </CardDescription>
             </CardHeader>
             <CardContent></CardContent>
-            {/* <CardFooter className="flex justify-between">
-                <Button variant="outline">Cancel</Button>
-                <Button>Deploy</Button>
-              </CardFooter> */}
           </Card>
         </>
       ))}

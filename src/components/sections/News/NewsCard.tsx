@@ -21,7 +21,6 @@ export function CardWithForm({ data }: any) {
             alt={data?.title}
             loading="lazy"
           />
-          {/* <img src="/placeholder.webp" /> */}
         </div>
         <div>
           <CardHeader>
@@ -35,14 +34,12 @@ export function CardWithForm({ data }: any) {
         </div>
         <div>
           <CardFooter className="flex justify-end">
-            {/* <Button>Open</Button> */}
             <Dialog>
               <DialogTrigger asChild>
                 <Button variant="outline">Open</Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[1000px]">
                 <iframe
-                  // allow-same-origin
                   width="830"
                   height="800"
                   scrolling="yes"

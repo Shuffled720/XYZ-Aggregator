@@ -68,8 +68,6 @@ const Page: FC<PageProps> = ({ params }) => {
         </div>
         {data ? <Musics data={data} setMusic={setMusic} /> : ""}
       </div>
-      {/* <Musics data={data ? data : ""} /> */}
-      {/* <WebPlayback token={params.access_token} /> */}
     </>
   );
 };

@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { CardWithForm } from "./NewsCard";
-import { apiURL } from "@/lib/urls";
+// import { apiURL } from "@/lib/urls";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGlobalContext } from "@/context/store";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+const apiURL = process.env.NEXT_PUBLIC_API_URL;
 
 const News = () => {
   const { search, setSearch } = useGlobalContext();

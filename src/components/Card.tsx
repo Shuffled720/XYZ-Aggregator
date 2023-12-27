@@ -34,7 +34,6 @@ export function CardWithForm({ data }: any) {
         </div>
         <div>
           <CardFooter className="flex justify-end">
-            {/* <Button variant="outline">Cancel</Button> */}
             <Button>Open</Button>
           </CardFooter>
         </div>
