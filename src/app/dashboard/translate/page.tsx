@@ -1,10 +1,10 @@
-import News from "@/components/sections/News/News";
+import Translate from "@/components/sections/GoogleTranslate/Translate";
 import React from "react";
 
 const page = () => {
   return (
     <div className="container">
-      <News />
+      <Translate />
     </div>
   );
 };

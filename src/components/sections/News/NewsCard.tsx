@@ -10,17 +10,17 @@ import {
 } from "@/components/ui/card";
 
 export function CardWithForm({ data }: any) {
-  console.log(data);
-
   return (
     <Card className="w-[300px] ">
       <div className="">
         <div>
           <img
             className="w-100"
-            src={data ? data.urlToImage : "placeholder.webp"}
+            src={data.urlToImage ? data.urlToImage : "/placeholder.webp"}
             alt={data?.title}
+            loading="lazy"
           />
+          {/* <img src="/placeholder.webp" /> */}
         </div>
         <div>
           <CardHeader>

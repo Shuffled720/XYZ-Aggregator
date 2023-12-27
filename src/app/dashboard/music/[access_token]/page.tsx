@@ -41,7 +41,7 @@ const Page: FC<PageProps> = ({ params }) => {
 
   return (
     <>
-      <div className="grid md:grid-cols-2 justify-center items-end ">
+      <div className=" container grid md:grid-cols-2 justify-center items-end ">
         <SpotifyUser accessToken={params.access_token} />
         <div className="">
           <div className="py-4">

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 
 const News = () => {
   const { search, setSearch } = useGlobalContext();
-  const [totalResults, setTotalResults] = useState(-1); // data["totalResults"
+  const [totalResults, setTotalResults] = useState(-1);
   const [data, setData] = useState([]);
   const callAPI = async () => {
     try {
@@ -21,7 +21,6 @@ const News = () => {
         },
       });
       const data = await res.json();
-      //   console.log(data);
       setTotalResults(data.response.totalResults);
       setData(data.response.articles);
     } catch (err) {
@@ -54,7 +53,15 @@ const News = () => {
             Submit
           </Button>
         </div>
-        {data.length === 0 && totalResults === -1 ? (
+
+        {search === "" ? (
+          <>
+            <h1 className="text-5xl text-center py-10">Search for news</h1>
+          </>
+        ) : (
+          <></>
+        )}
+        {data && data.length === 0 && totalResults === -1 ? (
           <>
             <div className="">
               <div className="py-5 flex items-center space-x-4 px-10 ">
@@ -91,7 +98,7 @@ const News = () => {
           </>
         ) : (
           <>
-            <div className="m-4 grid md:grid-cols-5 gap-2 sm:grid-cols-1 justify-items-center ">
+            <div className="m-4 grid md:grid-cols-4 gap-2 sm:grid-cols-1 justify-items-center ">
               {data?.map((item: any) => (
                 <>
                   <CardWithForm data={item} />

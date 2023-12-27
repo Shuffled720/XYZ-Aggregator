@@ -1,4 +1,3 @@
-"use client";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
@@ -8,7 +7,7 @@ const page = async () => {
   if (!user || !user.id) {
     redirect("/");
   }
-  return <></>;
+  return <>DashBoard</>;
 };
 
 export default page;

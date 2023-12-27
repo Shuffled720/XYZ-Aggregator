@@ -40,24 +40,34 @@ const Navbar = async () => {
         </div>
       </nav>
       <div className="bg-accent p-4">
-        <div className="grid grid-cols-4 gap-4  justify-items-center	">
-          <div>
-            <Button asChild>
-              <Link href="/dashboard/news">News</Link>
-            </Button>
-          </div>
-          <div>
-            <Button>
-              <Link href="/dashboard/music">Music</Link>
-            </Button>
-          </div>
-          <div>
-            <Button>Reddit</Button>
-          </div>
-          <div>
-            <Button>arcXiv</Button>
-          </div>
-        </div>
+        {user ? (
+          <>
+            <div className="grid grid-cols-4 gap-4  justify-items-center	">
+              <div>
+                <Button asChild>
+                  <Link href="/dashboard/news">News</Link>
+                </Button>
+              </div>
+              <div>
+                <Button>
+                  <Link href="/dashboard/music">Music</Link>
+                </Button>
+              </div>
+              <div>
+                <Button asChild>
+                  <Link href="/dashboard/translate">Translate</Link>
+                </Button>
+              </div>
+              <div>
+                <Button asChild>
+                  <Link href="/dashboard/countries">Country</Link>
+                </Button>
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

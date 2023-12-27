@@ -1,10 +1,10 @@
-import News from "@/components/sections/News/News";
+import Country from "@/components/sections/RestCountries/Country";
 import React from "react";
 
 const page = () => {
   return (
-    <div className="container">
-      <News />
+    <div>
+      <Country />
     </div>
   );
 };
