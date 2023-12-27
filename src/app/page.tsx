@@ -8,7 +8,7 @@ import Image from "next/image";
 export default async function Home() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log(process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI);
+  console.log("fssd", process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI);
 
   return (
     <main>
