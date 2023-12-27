@@ -8,10 +8,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 export function CardWithForm({ data }: any) {
   return (
-    <Card className="w-[300px] ">
+    <Card className="w-[300px] mt-3 ">
       <div className="">
         <div>
           <img
@@ -34,7 +35,23 @@ export function CardWithForm({ data }: any) {
         </div>
         <div>
           <CardFooter className="flex justify-end">
-            <Button>Open</Button>
+            {/* <Button>Open</Button> */}
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button variant="outline">Open</Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[1000px]">
+                <iframe
+                  // allow-same-origin
+                  width="830"
+                  height="800"
+                  scrolling="yes"
+                  seamless
+                  className="w-full aspect-video"
+                  src={data?.url}
+                ></iframe>
+              </DialogContent>
+            </Dialog>
           </CardFooter>
         </div>
       </div>

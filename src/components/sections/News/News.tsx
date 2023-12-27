@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 
 const News = () => {
   const { search, setSearch } = useGlobalContext();
+
   const [totalResults, setTotalResults] = useState(-1);
   const [data, setData] = useState([]);
   const callAPI = async () => {
@@ -29,10 +30,12 @@ const News = () => {
   };
   useEffect(() => {
     callAPI();
+    setSearch("");
   }, []);
   return (
     <>
       <div className="mx-auto ">
+        <h1 className="text-5xl text-center py-10">News</h1>
         <div className="w-1/2 m-auto py-2 flex justify-between">
           <Input
             className="mx-1"
@@ -56,7 +59,7 @@ const News = () => {
 
         {search === "" ? (
           <>
-            <h1 className="text-5xl text-center py-10">Search for news</h1>
+            <h1 className="text-2xl text-center m-auto">Search for news...</h1>
           </>
         ) : (
           <></>

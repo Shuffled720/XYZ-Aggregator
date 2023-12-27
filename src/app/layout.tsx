@@ -26,7 +26,6 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <GlobalContextProvider>
-            <Navbar />
             {children}
             <Footer />
           </GlobalContextProvider>

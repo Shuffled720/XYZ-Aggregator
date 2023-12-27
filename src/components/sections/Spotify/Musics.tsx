@@ -13,6 +13,13 @@ const Musics = ({ data, setMusic }: any) => {
 
   return (
     <div className=" grid grid-cols-1 px-20">
+      {data.length === 0 ? (
+        <div className="flex justify-center items-center">
+          <h1 className="text-5xl">Search for a song</h1>
+        </div>
+      ) : (
+        <></>
+      )}
       {data?.map((item: any) => (
         <>
           <div key={item.id}>

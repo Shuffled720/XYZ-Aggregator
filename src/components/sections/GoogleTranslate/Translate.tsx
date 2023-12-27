@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useGlobalContext } from "@/context/store";
 import { apiURL } from "@/lib/urls";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 const Translate = () => {
   const { search, setSearch } = useGlobalContext();
   const [data, setData] = useState([]);
@@ -28,6 +28,7 @@ const Translate = () => {
 
   return (
     <>
+      <h1 className="text-5xl text-center py-10">Translate</h1>
       <div className="w-1/2 m-auto py-2 flex justify-between">
         <Input
           className="mx-1"
@@ -46,7 +47,7 @@ const Translate = () => {
           Submit
         </Button>
       </div>
-
+      {data.length === 0 ? <>Type Somthing to translate</> : <></>}
       <div>
         <h1 className="text-5xl text-center py-10">{data}</h1>
       </div>

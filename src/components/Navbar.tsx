@@ -7,6 +7,7 @@ import {
 import { ModeToggle } from "./ModeToggle";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
@@ -15,14 +16,17 @@ const Navbar = async () => {
 
   return (
     <div>
-      <nav className="flex justify-around  py-5 bg-foreground justify-items-center items-center">
+      <nav className=" px-2 flex justify-between  py-5 bg-foreground justify-items-center items-center">
         <div>
-          <h1 className="text-background ">XYZ Aggregator</h1>
+          {/* <h1 className="text-background ">XYZ Aggregator</h1> */}
+          <Link href="/dashboard">
+            <Image src="/logo.png" width={100} height={100} alt="_logo" />
+          </Link>
         </div>
         <div className=" flex justify-between ">
           {user ? (
             <>
-              <Button asChild className=" mx-3">
+              <Button asChild className=" height-full mx-3">
                 <LogoutLink>Log out</LogoutLink>
               </Button>
             </>
@@ -39,29 +43,29 @@ const Navbar = async () => {
           <ModeToggle />
         </div>
       </nav>
-      <div className="bg-accent p-4">
+      <div className="bg-accent ">
         {user ? (
           <>
-            <div className="grid grid-cols-4 gap-4  justify-items-center	">
+            <div className="bg-foreground h-full grid grid-cols-4 gap-4  justify-items-center	">
               <div>
-                <Button asChild>
-                  <Link href="/dashboard/news">News</Link>
-                </Button>
+                <Link href="/dashboard/news">
+                  <Button className="p-6">News</Button>
+                </Link>
               </div>
               <div>
-                <Button>
-                  <Link href="/dashboard/music">Music</Link>
-                </Button>
+                <Link href="/dashboard/music">
+                  <Button className="p-6">Music</Button>
+                </Link>
               </div>
               <div>
-                <Button asChild>
-                  <Link href="/dashboard/translate">Translate</Link>
-                </Button>
+                <Link href="/dashboard/translate">
+                  <Button className="p-6">Translate</Button>
+                </Link>
               </div>
               <div>
-                <Button asChild>
-                  <Link href="/dashboard/countries">Country</Link>
-                </Button>
+                <Link href="/dashboard/countries">
+                  <Button className="p-6">Country</Button>
+                </Link>
               </div>
             </div>
           </>

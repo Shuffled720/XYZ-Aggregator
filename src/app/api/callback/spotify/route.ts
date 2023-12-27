@@ -1,3 +1,4 @@
+import { appURL } from "@/lib/urls";
 import { redirect } from "next/navigation";
 
 const fetchAut = async (code: string, state: string) => {
@@ -33,7 +34,7 @@ const fetchAut = async (code: string, state: string) => {
     },
   });
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
   return data;
   //   Response.json({ json });
   //   return response;
@@ -49,6 +50,6 @@ export async function GET(req: Request) {
   //   console.log(respo    nse);
 
   //   Response.redirect("http://localhost:3000/dashboard/music");
-  redirect(`http://localhost:3000/dashboard/music/${response.access_token}`);
+  redirect(`${appURL}/dashboard/music/${response.access_token}`);
   return Response.json({ response });
 }

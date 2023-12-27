@@ -3,8 +3,8 @@ const fetchNews = async (key: string) => {
     "https://newsapi.org/v2/everything?" +
       `q=${key}&` +
       "sortBy=popularity&" +
-      // 'apiKey=d806800d41544b5d834e9e3b6bdae18e')
-      "apiKey=7724e979730840768bbb83000d63dbd1"
+      "apiKey=d806800d41544b5d834e9e3b6bdae18e"
+    // "apiKey=7724e979730840768bbb83000d63dbd1"
   );
 
   const json = await response.json();

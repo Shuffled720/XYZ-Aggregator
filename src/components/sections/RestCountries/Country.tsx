@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useEffect, useState } from "react";
-import { useGlobalContext } from "@/context/store";
 import { apiURL } from "@/lib/urls";
 import Countries from "./Countries";
 
@@ -13,6 +12,7 @@ const Country = () => {
   const [search, setSearch] = useState("");
   const [keyword, setKeyword] = useState("");
   const [data, setData] = useState([]);
+  const [searched, setSearched] = useState(false);
   useEffect(() => {
     console.log(keyword);
   });
@@ -28,13 +28,15 @@ const Country = () => {
       }
     );
     const data = await res.json();
-    // console.log(data.response);
     setData(data.response);
+    setSearched(false);
   };
 
   return (
-    <div>
+    <div className="container mx-auto w-full">
       <div className="flex flex-col justify-center items-center">
+        <h1 className="text-5xl text-center py-10">Countries</h1>
+
         <div className="w-1/2 m-auto  flex justify-between py-4">
           <Input
             className="mx-1"
@@ -97,15 +99,32 @@ const Country = () => {
           <div className="flex flex-col items-center space-x-2">
             <RadioGroupItem
               value="subregions"
-              onClick={handleRadioChange()}
+              onClick={() => {
+                handleRadioChange();
+                setSearched(true);
+              }}
               id="r3"
             />
             <Label htmlFor="r3">Subregions</Label>
           </div>
         </RadioGroup>
       </div>
-
-      <Countries data={data} />
+      {data.length === 0 && search == "" ? (
+        <>
+          <h1 className="text-5xl text-center py-10">
+            Search for a country...
+          </h1>
+        </>
+      ) : (
+        <></>
+      )}
+      {searched && data.length === 0 && search != "" ? (
+        <>
+          <h1 className="text-5xl text-center py-10">No country found!!!</h1>
+        </>
+      ) : (
+        <>{data.length != 0 ? <Countries data={data} /> : <></>}</>
+      )}
     </div>
   );
 };

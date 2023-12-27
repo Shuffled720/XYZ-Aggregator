@@ -11,7 +11,7 @@ interface PageProps {
   params: { access_token: string };
 }
 const Page: FC<PageProps> = ({ params }) => {
-  const { search, apiType, setSearch } = useGlobalContext();
+  const { search, setSearch } = useGlobalContext();
   const [data, setData] = useState([]);
   const [music, setMusic] = useState<string>("0t488LlnuTDRjklgkotom9");
   const callAPI = async () => {
@@ -41,28 +41,33 @@ const Page: FC<PageProps> = ({ params }) => {
 
   return (
     <>
-      <div className=" container grid md:grid-cols-2 justify-center items-end ">
-        <SpotifyUser accessToken={params.access_token} />
-        <div className="">
-          <div className="py-4">
-            <SpotifyPlayer
-              token={params.access_token}
-              uris={[`spotify:track:${music}`]}
-            />
-          </div>
-          <h1 className="text-xl font-bold text-center">Search for a song</h1>
-          <div className=" m-auto py-2 flex justify-between">
-            <Input
-              value={search}
-              onChange={(event) => {
-                setSearch(event.target.value);
-              }}
-            />
-            <Button onClick={() => callAPI()}>Submit</Button>
+      <div className=" container  py-2 ">
+        <h1 className="text-5xl text-center py-10">Spotify</h1>
+
+        <div className="grid md:grid-cols-2 xs:grid-cols-1 justify-between items-end">
+          <SpotifyUser accessToken={params.access_token} />
+          <div className="">
+            <h1 className="text-xl font-bold text-center">Now Playing</h1>
+            <div className="py-4">
+              <SpotifyPlayer
+                token={params.access_token}
+                uris={[`spotify:track:${music}`]}
+              />
+            </div>
           </div>
         </div>
+        <h1 className="text-xl font-bold text-center">Search for a song</h1>
+        <div className=" m-auto py-2 flex justify-between">
+          <Input
+            value={search}
+            onChange={(event) => {
+              setSearch(event.target.value);
+            }}
+          />
+          <Button onClick={() => callAPI()}>Submit</Button>
+        </div>
+        {data ? <Musics data={data} setMusic={setMusic} /> : ""}
       </div>
-      {data ? <Musics data={data} setMusic={setMusic} /> : ""}
       {/* <Musics data={data ? data : ""} /> */}
       {/* <WebPlayback token={params.access_token} /> */}
     </>

@@ -29,7 +29,7 @@ export function SpotifyUser({ accessToken }: { accessToken: string }) {
   }, [countRef]);
 
   return (
-    <Card className="w-[400px] mx-auto my-2">
+    <Card className="w-[500px] mx-auto my-2">
       <CardHeader>
         <CardTitle>
           <h1 className="text-green-500">Spotify</h1>
