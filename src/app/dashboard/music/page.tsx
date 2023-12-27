@@ -3,9 +3,9 @@ import React from "react";
 
 const Page = () => {
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
-  // const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
-  const redirectUri =
-    "https://xyz-aggregator-vishal.vercel.app/api/callback/spotify";
+  const redirectUri = process.env.NEXT_PUBLIC_SPOTIFY_REDIRECT_URI;
+  // const redirectUri =
+  // "https://xyz-aggregator-vishal.vercel.app/api/callback/spotify";
   const state = generateRandomString(16);
   var scope = "streaming \
   user-read-email \
