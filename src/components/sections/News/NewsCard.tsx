@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Button } from "@/components/ui/button";
+import * as React from "react"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -7,8 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+} from "@/components/ui/card"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export function CardWithForm({ data }: any) {
   return (
@@ -39,19 +39,25 @@ export function CardWithForm({ data }: any) {
                 <Button variant="outline">Open</Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[1000px]">
-                <iframe
+                <embed
+                  type="text/html"
+                  src={data?.url}
+                  width="830"
+                  height="800"
+                ></embed>
+                {/* <iframe
                   width="830"
                   height="800"
                   scrolling="yes"
                   seamless
                   className="w-full aspect-video"
                   src={data?.url}
-                ></iframe>
+                ></iframe> */}
               </DialogContent>
             </Dialog>
           </CardFooter>
         </div>
       </div>
     </Card>
-  );
+  )
 }
