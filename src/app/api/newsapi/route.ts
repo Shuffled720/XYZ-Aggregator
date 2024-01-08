@@ -15,7 +15,6 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const key = searchParams.get("key");
   var keywithoutspace = key?.replace(/\s/g, "+");
-  console.log(keywithoutspace);
 
   const response = await fetchNews(keywithoutspace ? keywithoutspace : "");
   return Response.json({ response });

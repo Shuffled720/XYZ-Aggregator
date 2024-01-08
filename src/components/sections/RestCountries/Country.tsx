@@ -16,11 +16,9 @@ const Country = () => {
   const [data, setData] = useState([]);
   const [searched, setSearched] = useState(false);
   useEffect(() => {
-    console.log(keyword);
   });
   const handleRadioChange = () => (e: any) => {
     setKeyword(e.target.value);
-    console.log(keyword);
   };
   const callAPI = async () => {
     const res = await fetch(

@@ -1,7 +1,6 @@
 const fetchCountry = async (key:string, value:string) => {
     var api = 'https://restcountries.com/v3.1/'+`${key}/${value}`;
     const response=await fetch(api)
-    console.log(api)
     const json=await response.json();
     return json;
 }

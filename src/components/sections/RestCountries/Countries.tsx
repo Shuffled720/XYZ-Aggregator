@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 
 const Countries = ({ data }: { data: any }) => {
-  console.log(data);
 
   return (
     <div className="container py-4">

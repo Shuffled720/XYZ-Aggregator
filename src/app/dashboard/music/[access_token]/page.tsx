@@ -27,7 +27,6 @@ const Page: FC<PageProps> = ({ params }) => {
         }
       );
       const data = await res.json();
-      console.log(data.tracks.items);
       setData(data.tracks.items);
     } catch (err) {
       console.log(err);

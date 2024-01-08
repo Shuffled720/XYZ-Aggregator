@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 
 export function CardWithForm({ data }: any) {
-  console.log(data);
 
   return (
     <Card className="w-[300px] ">

@@ -19,7 +19,6 @@ const Translate = () => {
         },
       });
       const data = await res.json();
-      console.log(data.response);
 
       setData(data.response);
     } catch (err) {

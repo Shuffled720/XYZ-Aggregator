@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Button } from "@/components/ui/button";
+import * as React from "react"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -7,10 +7,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/ui/card"
 const Musics = ({ data, setMusic }: any) => {
-  console.log();
-
   return (
     <div className=" grid grid-cols-1 px-20">
       {data.length === 0 ? (
@@ -36,7 +34,7 @@ const Musics = ({ data, setMusic }: any) => {
                 <CardFooter className="flex justify-between">
                   <Button
                     onClick={() => {
-                      setMusic(item.id);
+                      setMusic(item.id)
                     }}
                   >
                     Play
@@ -51,7 +49,7 @@ const Musics = ({ data, setMusic }: any) => {
         </>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Musics;
+export default Musics
