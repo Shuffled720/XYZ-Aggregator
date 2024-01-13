@@ -1,19 +1,19 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { CardWithForm } from "./NewsCard";
+import { useEffect, useState } from "react"
+import { CardWithForm } from "./NewsCard"
 // import { apiURL } from "@/lib/urls";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useGlobalContext } from "@/context/store";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-const apiURL = process.env.NEXT_PUBLIC_API_URL;
+import { Skeleton } from "@/components/ui/skeleton"
+import { useGlobalContext } from "@/context/store"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+const apiURL = process.env.NEXT_PUBLIC_API_URL
 
 const News = () => {
-  const { search, setSearch } = useGlobalContext();
+  const { search, setSearch } = useGlobalContext()
 
-  const [totalResults, setTotalResults] = useState(-1);
-  const [data, setData] = useState([]);
+  const [totalResults, setTotalResults] = useState(-1)
+  const [data, setData] = useState([])
   const callAPI = async () => {
     try {
       const res = await fetch(`${apiURL}/newsapi/?key=${search}`, {
@@ -21,18 +21,18 @@ const News = () => {
         headers: {
           "Content-Type": "application/json",
         },
-      });
-      const data = await res.json();
-      setTotalResults(data.response.totalResults);
-      setData(data.response.articles);
+      })
+      const data = await res.json()
+      setTotalResults(data.response.totalResults)
+      setData(data.response.articles)
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
-  };
+  }
   useEffect(() => {
-    callAPI();
-    setSearch("");
-  }, []);
+    callAPI()
+    setSearch("")
+  }, [])
   return (
     <>
       <div className="mx-auto ">
@@ -42,16 +42,16 @@ const News = () => {
             className="mx-1"
             value={search}
             onChange={(event) => {
-              setSearch(event.target.value);
+              setSearch(event.target.value)
             }}
             type="text"
             placeholder="Search..."
           />
           <Button
             onClick={() => {
-              callAPI();
-              setTotalResults(-1);
-              setData([]);
+              callAPI()
+              setTotalResults(-1)
+              setData([])
             }}
           >
             Submit
@@ -102,7 +102,7 @@ const News = () => {
           </>
         ) : (
           <>
-            <div className="m-4 grid md:grid-cols-4 gap-2 sm:grid-cols-1 justify-items-center ">
+            <div className="m-4 grid lg:grid-cols-3 md:grid-cols-2  sm:grid-cols-1 justify-items-center ">
               {data?.map((item: any) => (
                 <>
                   <CardWithForm data={item} />
@@ -113,7 +113,7 @@ const News = () => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default News;
+export default News

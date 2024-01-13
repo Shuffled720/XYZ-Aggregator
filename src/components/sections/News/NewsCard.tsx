@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 
 export function CardWithForm({ data }: any) {
   return (
-    <Card className="w-[300px] mt-3 ">
+    <Card className="w-[350px] mt-3 ">
       <div className="">
         <div>
           <img
@@ -43,7 +43,7 @@ export function CardWithForm({ data }: any) {
                   type="text/html"
                   src={data?.url}
                   width="830"
-                  height="800"
+                  height="600"
                 ></embed>
                 {/* <iframe
                   width="830"
