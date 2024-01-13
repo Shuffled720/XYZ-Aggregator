@@ -1,26 +1,26 @@
-import Link from "next/link";
-import React from "react";
-import Image from "next/image";
-import { Button } from "./ui/button";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import Link from "next/link"
+import React from "react"
+import Image from "next/image"
+import { Button } from "./ui/button"
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import {
   RegisterLink,
   LoginLink,
   LogoutLink,
-} from "@kinde-oss/kinde-auth-nextjs/components";
+} from "@kinde-oss/kinde-auth-nextjs/components"
 import {
   GlobeIcon,
   LanguagesIcon,
   MusicIcon,
   NewspaperIcon,
-} from "lucide-react";
+} from "lucide-react"
 
 const LeftNavBar = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  const { getUser } = getKindeServerSession()
+  const user = await getUser()
   return (
     <div>
-      <nav className="bg-secondary h-screen">
+      <nav className="bg-secondary h-screen fixed">
         <div className="flex flex-col justify-between h-screen">
           <Link href="/dashboard">
             <Image src="/logo.png" width={100} height={100} alt="_logo" />
@@ -70,7 +70,7 @@ const LeftNavBar = async () => {
         </div>
       </nav>
     </div>
-  );
-};
+  )
+}
 
-export default LeftNavBar;
+export default LeftNavBar
